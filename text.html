@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="google" value="notranslate">
+        <link rel="icon" type="image/png" href="icon.png">
+        <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
+        <title itemprop="name">DBUG: About Me</title>
+        <meta name="theme-color" content="#212121">
+        <style>
+            * {
+                cursor: text;
+                -webkit-tap-highlight-color: transparent
+            }
+
+            a {
+                cursor: pointer!important
+            }
+
+            body.bg-white ::selection {
+                background-color: #000;
+                color: #fff
+            }
+
+            body.bg-black ::selection,body.bg-dblue ::selection,body.bg-dgray ::selection,body.bg-dgreen ::selection {
+                background-color: #fff!important;
+                color: #000!important
+            }
+
+            body {
+                font-size: 17px!important;
+                background-color: #fff;
+                padding: 5px;
+                overflow-x: hidden
+            }
+
+            body,pre {
+                font-family: Cutive Mono,Courier New,Consolas,monospace!important;
+                margin: 0
+            }
+
+            pre {
+                margin-right: 30px
+            }
+
+            #main {
+                line-height: 23px;
+                word-wrap: break-word;
+                position: relative
+            }
+
+            #main a {
+                color: #000
+            }
+
+            #main a:hover {
+                text-decoration: none!important
+            }
+
+            .content {
+                display: inline-block;
+                width: 100%;
+                word-break: break-all
+            }
+
+            .info {
+                color: rgba(0,0,0,.3)
+            }
+
+            body.bg-agreen.fc-white a,body.fc-white a {
+                color: #fff!important
+            }
+
+            body.bg-agreen.fc-gray a,body.fc-gray a {
+                color: #969696!important
+            }
+
+            body.fc-white .info {
+                color: hsla(0,0%,100%,.3)
+            }
+
+            body.fc-gray .info {
+                color: hsla(0,0%,59%,.3)
+            }
+
+            .bg-white {
+                background-color: #fff
+            }
+
+            .bg-black {
+                background-color: #000
+            }
+
+            .bg-dgray {
+                background-color: #323232
+            }
+
+            .bg-dblue {
+                background-color: #1e3946
+            }
+
+            .bg-dgreen {
+                background-color: #0d3936
+            }
+
+            .fc-black {
+                color: #000
+            }
+
+            .fc-gray {
+                color: #969696
+            }
+
+            .bg-black.bg-demo,.bg-dblue.bg-demo,.bg-dgray.bg-demo,.bg-dgreen.bg-demo,.fc-white {
+                color: #fff
+            }
+
+            .bg-white.bg-demo {
+                color: #000
+            }
+
+            .fc-white.fc-demo {
+                background-color: #000
+            }
+
+            .fc-black.fc-demo {
+                background-color: #fff
+            }
+
+            .precolor,.preleave,.preoption {
+                display: none;
+                word-break: break-all
+            }
+
+            .lan-div {
+                display: inline;
+                box-sizing: border-box;
+                margin: 0;
+                border-left: 1px solid hsla(0,0%,100%,.3)
+            }
+
+            @supports(-webkit-backdrop-filter: none) or (backdrop-filter:none) {
+                .soft-keyboard-self {
+                    -webkit-backdrop-filter:blur(30px);
+                    backdrop-filter: blur(30px)
+                }
+            }
+
+            @media(max-width: 400px) {
+                body {
+                    font-size:15px!important
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            Hi, I'm Axton, a student from China, currently studying in University of Manchester.<br>
+            To make life happier, please visit the <a href="index.html">interactive version</a>
+            of this page.<br>
+            <br>
+            <h3># introduction.md</h3>
+            Hi, 我，DBUG<br>
+            <br>
+            会打代码，想法很多<br>
+            <br>
+            渗透是我的爱好，尽管还在学<br>
+            <br>
+            会一点ctf,逆向,破解<br>
+            <br>
+            ### More details<br>
+            - 最喜欢的编辑器是 VS code<br>
+            - 勉强会玩 Linux<br>
+            - 偶尔折腾树莓派以及硬件<br>
+            - <br>
+            <br>
+            <h3># blog/post_list.md</h3>
+            <div id="post-list">
+                Loading...<br>
+            </div>
+            <br>
+            <h3># contact/README.md</h3>
+            # Contact me<br>
+            <br>
+            - Github: [@DBUG-DBUG](<a target="_blank" rel="noopener" href="https://github.com/DBUG-DBUG">https://github.com/DBUG-DBUG</a>
+            )<br>
+            - powered by DBUG<br>
+            )<br>
+            <br>
+            <h3># projects/README.md</h3>
+            # Projects<br>
+            <br>
+            - [bypass](<a target="_blank" rel="noopener" href="https://github.com/DBUG-DBUG/Bypass-parallels-desktop16.5">https://github.com/DBUG-DBUG/Bypass-parallels-desktop16.5</a>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script>
+            "use strict";
+            if (!localStorage.getItem("as-bg")) {
+                localStorage.setItem("as-bg", "1")
+            } else {
+                let bgColor = localStorage.getItem("as-bg");
+                if (bgColor === "1") {
+                    $('body').addClass("bg-white")
+                } else if (bgColor === "2") {
+                    $('body').addClass("bg-black");
+                    $("meta[name='theme-color']").attr('content', "#000000")
+                } else if (bgColor === "3") {
+                    $('body').addClass("bg-dgray");
+                    $("meta[name='theme-color']").attr('content', "#323232")
+                } else if (bgColor === "4") {
+                    $('body').addClass("bg-dblue");
+                    $("meta[name='theme-color']").attr('content', "#1e3946")
+                } else if (bgColor === "5") {
+                    $('body').addClass("bg-dgreen");
+                    $("meta[name='theme-color']").attr('content', "#0d3936")
+                } else {
+                    localStorage.setItem("as-bg", "1");
+                    $('body').addClass("bg-white")
+                }
+            }
+            if (!localStorage.getItem("as-fc")) {
+                localStorage.setItem("as-fc", "1")
+            } else {
+                let fColor = localStorage.getItem("as-fc");
+                if (fColor === "1") {
+                    $('body').addClass("fc-black")
+                } else if (fColor === "2") {
+                    $('body').addClass("fc-gray")
+                } else if (fColor === "3") {
+                    $('body').addClass("fc-white")
+                } else {
+                    localStorage.setItem("as-fc", "1");
+                    $('body').addClass("fc-black")
+                }
+            }
+            let renderedStr = "Someting went wrong :-(<br>";
+            function postList() {
+                renderedStr = 'Last 10 posts in my blog.<br>More in [Flyhigher](<a target="_blank" rel="noopener" href="http://flyhigher.top">http://flyhigher.top</a>)<br>';
+                $.ajax({
+                    url: "/blog",
+                    timeout: 10000,
+                    success: function(data) {
+                        for (let i in data) {
+                            let postTitleInApi = data[i].title.rendered;
+                            let postUrlInApi = data[i].link;
+                            renderedStr = renderedStr + '<br>- [' + postTitleInApi + '](<a target="_blank" rel="noopener" href="' + postUrlInApi + '">' + postUrlInApi + '</a>)'
+                        }
+                        $("#post-list").html(renderedStr)
+                    },
+                    error: function() {
+                        renderedStr = 'Can not get posts from my blog. Connection failed.<br>'
+                    }
+                })
+            }
+            postList();
+        </script>
+    </body>
+</html>
